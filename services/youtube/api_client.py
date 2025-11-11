@@ -1,16 +1,13 @@
-import os
-import httpx
-from typing import List, Dict
 import html
-import pickle
-import time
-from dotenv import load_dotenv
+import os
+from typing import List, Dict
 
-load_dotenv()
-TIMEOUT=10
+import httpx
+
+TIMEOUT = 10
 
 class YouTubeAPIClient:
-    
+
     def __init__(self):
         self._api_key = os.getenv('YOUTUBE_API_KEY', '')
         self._channel_id = os.getenv('YOUTUBE_CHANNEL_ID', '')
@@ -85,38 +82,3 @@ class YouTubeAPIClient:
             thumbs = items[0]['snippet']['thumbnails']
             return thumbs.get('high', thumbs.get('default', {})).get('url', '')
         return ''
-
-class YouTubeCache:
-    CACHE_PATH = 'youtube_videos_cache.pkl'
-    CACHE_TTL = 24 * 3600
-
-    def is_valid(self) -> bool:
-        if not os.path.exists(self.CACHE_PATH):
-            return False
-        with open(self.CACHE_PATH, 'rb') as f:
-            cache = pickle.load(f)
-        return time.time() - cache['timestamp'] < self.CACHE_TTL
-
-    def read(self) -> List[Dict]:
-        with open(self.CACHE_PATH, 'rb') as f:
-            cache = pickle.load(f)
-        return cache['videos']
-
-    def write(self, videos: List[Dict]) -> None:
-        with open(self.CACHE_PATH, 'wb') as f:
-            pickle.dump({'timestamp': time.time(), 'videos': videos}, f)
-
-class YouTubeService:
-    def __init__(self):
-        self.api = YouTubeAPIClient()
-        self.cache = YouTubeCache()
-
-    def get_latest_videos(self, max_results: int = 3) -> List[Dict]:
-        if self.cache.is_valid():
-            return self.cache.read()[:max_results]
-        videos = self.api.fetch_videos(max_results)
-        self.cache.write(videos)
-        return videos[:max_results]
-
-    def get_channel_picture_url(self) -> str:
-        return self.api.get_channel_picture_url()

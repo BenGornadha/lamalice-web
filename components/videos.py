@@ -1,13 +1,12 @@
 from nicegui import ui
 from components.info_card import InfoCard
 from components.section_separator import SectionSeparator
-from services.youtube import YouTubeService
 
-def videos_section() -> None:
+def videos_section(youtube_service) -> None:
     with ui.column().classes('w-full items-center py-12').props('id="videos-section"'):
         ui.label('Mes dernières vidéos YouTube').classes('text-2xl font-semibold text-gray-800 mb-2')
         SectionSeparator()
-        videos = YouTubeService().get_latest_videos()
+        videos = youtube_service.get_latest_videos()
         with ui.row().classes('gap-8'):
             for video in videos:
                 with ui.card().classes('w-80 bg-white shadow-md cursor-pointer'):
