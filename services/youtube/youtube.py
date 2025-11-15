@@ -22,6 +22,8 @@ class YouTubeService:
     def get_latest_videos(self, max_results: int = 3) -> List[Dict]:
         if self.cache.is_valid():
             return self.cache.read()[:max_results]
+        print("Calling API...")
+        print('----')
         videos = self.api.fetch_videos(max_results)
         self.cache.write(videos)
         return videos[:max_results]
