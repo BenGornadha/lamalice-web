@@ -4,12 +4,9 @@ ENV MPLCONFIGDIR=/tmp/matplotlib
 WORKDIR /app
 
 RUN mkdir -p /tmp/matplotlib
-COPY requirements.txt .
+COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip freeze
-
-COPY . .
 
 EXPOSE 8080
 
