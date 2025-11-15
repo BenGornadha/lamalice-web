@@ -12,5 +12,4 @@ def header() -> None:
         with ui.row().classes('gap-4'):
             OrangeButton('Accueil', on_click=lambda: scroll_to_section('about-section'))
             OrangeButton('Vidéos', on_click=lambda: scroll_to_section('videos-section'))
-            OrangeButton('Formations', on_click=lambda: scroll_to_section('formations-section'))
-            OrangeButton('Contact', on_click=lambda: scroll_to_section('contact-section')) 
+            OrangeButton('Contact', on_click=lambda: scroll_to_section('contact-section'))
