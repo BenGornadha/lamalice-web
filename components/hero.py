@@ -9,7 +9,7 @@ def hero(youtube_service) -> None:
             # Profile Picture
             photo_url = youtube_service.get_channel_picture_url()
             if photo_url:
-                ui.image(photo_url).classes('w-56 h-56 rounded-full mb-8 shadow-sm object-cover')
+                ui.image(photo_url).classes('w-80 h-80 rounded-full mb-8 object-cover border-[8px] border-white shadow-2xl ring-1 ring-gray-900/5')
             
             # Headlines
             ui.label("Hello, I'm Benjamin.").classes('text-5xl md:text-7xl font-bold tracking-tighter text-gray-900 mb-4')
