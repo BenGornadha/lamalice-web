@@ -1,15 +1,18 @@
 from nicegui import ui
 from config.settings import SITE
-from components.orange_button import OrangeButton
+from components.ui.button import Button
 
-def scroll_to_section(section_id: str) -> None:
-    ui.run_javascript(f"document.getElementById('{section_id}').scrollIntoView({{ behavior: 'smooth' }});")
+def scroll_to(id: str):
+    ui.run_javascript(f"document.getElementById('{id}').scrollIntoView({{ behavior: 'smooth' }});")
 
 def header() -> None:
-    with ui.row().classes('w-full justify-between items-center py-6 px-8 shadow-sm'):
-        ui.label(SITE['name']).classes('text-3xl font-bold text-orange-500')
-        ui.label(SITE['tagline']).classes('text-lg text-gray-600')
-        with ui.row().classes('gap-4'):
-            OrangeButton('Accueil', on_click=lambda: scroll_to_section('about-section'))
-            OrangeButton('Vidéos', on_click=lambda: scroll_to_section('videos-section'))
-            OrangeButton('Contact', on_click=lambda: scroll_to_section('contact-section'))
+    with ui.header().classes('w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50'):
+        with ui.row().classes('w-full max-w-screen-xl mx-auto items-center justify-between py-4 px-6'):
+            # Logo / Brand
+            ui.label(SITE['name']).classes('text-xl font-semibold tracking-tight text-gray-900')
+            
+            # Navigation
+            with ui.row().classes('gap-2'):
+                Button('À propos', on_click=lambda: scroll_to('hero'), variant='ghost')
+                Button('Vidéos', on_click=lambda: scroll_to('videos'), variant='ghost')
+                Button('Contact', on_click=lambda: scroll_to('contact'), variant='ghost')
