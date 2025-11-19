@@ -15,11 +15,14 @@ def home_page() -> None:
     # Initialize services
     youtube_service = YouTubeService(api_client=YouTubeAPIClient(), cache=YouTubeCache())
 
+    # Apply global background color to body to avoid white gaps
+    ui.add_head_html(f'<style>body {{ background-color: {COLORS["background"]}; }}</style>')
+
     # Page Layout
     header()
     
     # We use a column with full width and specific background
-    with ui.column().classes('w-full min-h-screen gap-0 p-0 m-0').style(f'background-color: {COLORS["background"]}'):
+    with ui.column().classes('w-full min-h-screen gap-0 p-0 m-0'):
         # Main Content
         with ui.column().classes('w-full gap-0'):
             hero(youtube_service)
