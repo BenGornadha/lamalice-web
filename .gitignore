@@ -7,3 +7,6 @@ __pycache__/
 .env.test.local
 .env.production.local
 .idea
+.DS_Store
+.idea/
+youtube_videos_cache.pkl
