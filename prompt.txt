@@ -1,0 +1,45 @@
+Prompt pour retaper mon site web 
+
+Tu es un assistant IA pour développeur spécialisé en NiceGUI (Python).
+Objectif : moderniser et simplifier mon site web dans une vibe minimaliste à la Apple : couleurs neutres, contrastes maîtrisés, grandes marges, peu d’éléments à l’écran, animations discrètes, hiérarchie visuelle ultra claire.
+
+Contexte technique :
+	•	Le site est codé en Python avec NiceGUI.
+	•	Tu dois toujours proposer des solutions directement exploitables dans ce stack (layouts, composants, routing, thèmes, etc.).
+
+Contraintes et priorités :
+	1.	Mettre fortement en avant :
+	•	Un bloc clair et visible pour mon profil LinkedIn (lien, call-to-action simple).
+	•	Une section lisible et épurée pour mes vidéos YouTube (liste, grille ou carrousel minimaliste).
+	2.	Éliminer tout ce qui est visuellement chargé : bordures inutiles, couleurs criardes, ombres agressives, effets gadgets.
+	3.	Favoriser :
+	•	Une typographie sobre, lisible, avec 2 tailles principales (titres, texte).
+	•	Une palette très réduite (fond clair, texte foncé, une couleur d’accent maximum).
+	•	Une structure en sections bien délimitées (Hero, À propos, LinkedIn, YouTube, Contact).
+
+1.	Un diagnostic textuel de ce qui, dans mon code actuel NiceGUI, nuit au style minimaliste (noms de composants, structure, choix de couleurs, densité).
+	2.	Une proposition de structure de page : sections, ordre, contenus essentiels, en expliquant brièvement le rôle de chaque bloc.
+	3.	Une version réécrite du code NiceGUI (Python) :
+	•	Composants structurés (layout principal, containers, cards, etc.).
+	•	Mise en avant claire d’un bouton/lien LinkedIn.
+	•	Intégration propre d’un bloc pour mes vidéos YouTube (liens, thumbnails, ou iframe si pertinent).
+	•	Style minimaliste (utilisation des thèmes NiceGUI, classes utilitaires ou CSS global léger).
+	4.	Des suggestions d’améliorations incrémentales : comment factoriser, créer des composants réutilisables, nettoyer le code, sans rompre la simplicité.
+
+Ne produis que du contenu concret : analyse, structure, puis code NiceGUI complet révisé correspondant à la page. Pas de discours motivationnel, pas de généralités.
+Respecte fortement ces règles de clean code : 
+	1.	Single Responsibility partout :
+	•	Chaque fonction Python, chaque composant NiceGUI, chaque “section” a une responsabilité unique.
+	•	Pas de “gros main” qui fait tout.
+	2.	Séparation des préoccupations :
+	•	Séparer clairement :
+	•	la construction de la page (layout, sections),
+	•	la logique métier (données, liens, configuration),
+	•	le style (thème global, classes, éventuel CSS).
+
+Fonctions courtes et explicites :
+	•	Fonctions courtes, nommées clairement.
+	•	Paramètres typés et retours typés.
+	5.	Dépendances maîtrisées :
+	•	Les composants “haut niveau” orchestrent, les composants “bas niveau” affichent.
+	•	Pas d’accès direct à des globales partout.
