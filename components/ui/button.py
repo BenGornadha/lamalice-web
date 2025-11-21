@@ -21,13 +21,15 @@ def Button(text: str, on_click: Optional[Callable] = None, variant: Variant = 'p
         classes = f'{base_classes} text-gray-600 hover:text-gray-900 hover:bg-gray-50'
 
     if href:
-        # If it's a link, we wrap it or use ui.link logic, but ui.button can also just open links.
-        # For simplicity in NiceGUI, we can use on_click to open the link if provided, 
-        # or just let the caller handle the logic. 
-        # Here we'll assume the caller might pass a lambda to open the link, 
-        # BUT if href is passed, we override on_click to open it.
-        on_click = lambda: ui.open(href)
+        # Use ui.link for native navigation (better for SEO, middle-click, mailto)
+        # We wrap the content in a link but style it like a button
+        with ui.link(target=href).classes(classes + ' no-underline flex items-center justify-center gap-2') as link:
+            if icon:
+                ui.icon(icon).classes('text-lg')
+            ui.label(text)
+        return link
 
+    # Default button behavior
     btn = ui.button(text, on_click=on_click, icon=icon).classes(classes)
     
     # Remove default NiceGUI styling to have full control

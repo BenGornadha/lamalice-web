@@ -12,7 +12,7 @@ def videos_section(youtube_service) -> None:
                     ui.label('Dernières Vidéos').classes('text-3xl font-bold tracking-tight text-gray-900')
                     ui.label('Tutoriels et partages sur le développement Python.').classes('text-lg text-gray-500')
                 
-                Button('Voir la chaîne', href='https://www.youtube.com/@lamalicecode', variant='ghost', icon='arrow_forward')
+                Button('Voir la chaîne', href='https://www.youtube.com/channel/UCKmnJcZ9f8G4W_oCHklv9Cw', variant='ghost', icon='arrow_forward')
 
             # Videos Grid
             videos = youtube_service.get_latest_videos()
@@ -23,7 +23,7 @@ def videos_section(youtube_service) -> None:
                         # We use a transparent button overlay or just javascript onclick for the whole card
                         # NiceGUI cards aren't natively clickable links, so we wrap content or use JS.
                         # Here we'll use a simple onclick handler on the card.
-                        card.on('click', lambda v=video: ui.open(f"https://www.youtube.com/watch?v={v['videoId']}"))
+                        card.on('click', lambda v=video: ui.run_javascript(f"window.open('https://www.youtube.com/watch?v={v['videoId']}', '_blank')"))
                         
                         # Thumbnail container with overflow hidden for zoom effect
                         with ui.element('div').classes('w-full aspect-video overflow-hidden relative'):
@@ -32,4 +32,4 @@ def videos_section(youtube_service) -> None:
                         # Content
                         with ui.column().classes('p-5 gap-2'):
                             ui.label(video['title']).classes('text-base font-semibold leading-snug text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors')
-                            ui.label('Regarder maintenant').classes('text-sm font-medium text-gray-400 group-hover:text-blue-600 transition-colors mt-2')
+                            ui.link('Regarder maintenant', f"https://www.youtube.com/watch?v={video['videoId']}").classes('text-sm font-medium text-gray-400 group-hover:text-blue-600 transition-colors mt-2')

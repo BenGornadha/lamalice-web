@@ -15,4 +15,3 @@ def contact_section() -> None:
                 # Social Icons (Text links for minimalism)
                 ui.link('LinkedIn', SITE['linkedin_url']).classes('text-gray-500 hover:text-gray-900 transition-colors')
                 ui.link('GitHub', SITE['github_url']).classes('text-gray-500 hover:text-gray-900 transition-colors')
-                ui.link('Twitter', SITE['tiktok_url']).classes('text-gray-500 hover:text-gray-900 transition-colors') # Assuming tiktok is the other one mentioned

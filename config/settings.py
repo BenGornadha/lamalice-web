@@ -16,6 +16,5 @@ SITE: Dict[str, str] = {
     'email': 'lamalicecode@gmail.com',
     'youtube_url': 'https://www.youtube.com/channel/UCKmnJcZ9f8G4W_oCHklv9Cw',
     'linkedin_url': 'https://www.linkedin.com/in/benjamin-gornadha-41879580/',
-    'tiktok_url': 'https://www.tiktok.com/@lamalicecode',
     'github_url': 'https://github.com/BenGornadha',
 }
