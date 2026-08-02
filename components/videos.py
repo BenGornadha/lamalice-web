@@ -1,5 +1,5 @@
 from nicegui import ui
-from components.ui.section import Section
+from components.ui.section import Section, SectionHeader
 from components.ui.card import Card
 from components.ui.button import Button
 
@@ -8,9 +8,7 @@ def videos_section(youtube_service) -> None:
         with ui.column().classes('w-full gap-8'):
             # Section Header
             with ui.row().classes('w-full justify-between items-end'):
-                with ui.column().classes('gap-2'):
-                    ui.label('Dernières Vidéos').classes('text-3xl font-bold tracking-tight text-gray-900')
-                    ui.label('Tutoriels et partages sur le développement Python.').classes('text-lg text-gray-500')
+                SectionHeader('Dernières Vidéos', 'Tutoriels et partages sur le développement Python.')
                 
                 Button('Voir la chaîne', href='https://www.youtube.com/channel/UCKmnJcZ9f8G4W_oCHklv9Cw', variant='ghost', icon='arrow_forward')
 

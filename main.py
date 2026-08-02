@@ -11,9 +11,9 @@ from services.youtube.api_client import YouTubeAPIClient
 youtube_service = YouTubeService(api_client=YouTubeAPIClient(), cache=YouTubeCache())
 
 def start_scheduler():
-    scheduler = BackgroundScheduler()
+    scheduler = BackgroundScheduler(timezone=ZoneInfo("Europe/Paris"))
     # Schedule the job to run every day at 9:00 AM
-    scheduler.add_job(lambda: youtube_service.refresh_cache(force=True), 'cron', hour=9, minute=0, timezone=ZoneInfo("Europe/Paris"))
+    scheduler.add_job(lambda: youtube_service.refresh_cache(force=True), 'cron', hour=9, minute=0)
     scheduler.start()
     print("Scheduler started: YouTube cache will refresh daily at 9:00 AM.")
 
