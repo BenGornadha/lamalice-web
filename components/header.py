@@ -15,4 +15,5 @@ def header() -> None:
             with ui.row().classes('gap-2'):
                 Button('À propos', on_click=lambda: scroll_to('hero'), variant='ghost')
                 Button('Vidéos', on_click=lambda: scroll_to('videos'), variant='ghost')
+                Button('Prompts', on_click=lambda: scroll_to('prompts'), variant='ghost')
                 Button('Contact', on_click=lambda: scroll_to('contact'), variant='ghost')
