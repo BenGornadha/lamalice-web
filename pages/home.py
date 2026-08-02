@@ -2,6 +2,7 @@ from nicegui import ui
 from components.header import header
 from components.hero import hero
 from components.videos import videos_section
+from components.prompts import prompts_section
 from components.contact import contact_section
 from services.youtube.youtube import YouTubeService
 from infrastructure.persistence.cache import YouTubeCache
@@ -27,6 +28,7 @@ def home_page() -> None:
         with ui.column().classes('w-full gap-0'):
             hero(youtube_service)
             videos_section(youtube_service)
+            prompts_section()
             contact_section()
             
         # Footer (Simple copyright)
