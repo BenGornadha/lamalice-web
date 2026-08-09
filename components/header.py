@@ -1,5 +1,5 @@
 from nicegui import ui
-from config.settings import SITE
+from config.settings import SITE, GAME
 from components.ui.button import Button
 
 def scroll_to(id: str):
@@ -16,4 +16,5 @@ def header() -> None:
                 Button('À propos', on_click=lambda: scroll_to('hero'), variant='ghost')
                 Button('Vidéos', on_click=lambda: scroll_to('videos'), variant='ghost')
                 Button('Prompts', on_click=lambda: scroll_to('prompts'), variant='ghost')
+                Button(GAME['name'], on_click=lambda: scroll_to('game'), variant='ghost')
                 Button('Contact', on_click=lambda: scroll_to('contact'), variant='ghost')

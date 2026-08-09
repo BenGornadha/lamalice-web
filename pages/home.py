@@ -3,6 +3,7 @@ from components.header import header
 from components.hero import hero
 from components.videos import videos_section
 from components.prompts import prompts_section
+from components.game import game_section
 from components.contact import contact_section
 from services.youtube.youtube import YouTubeService
 from infrastructure.persistence.cache import YouTubeCache
@@ -29,6 +30,7 @@ def home_page() -> None:
             hero(youtube_service)
             videos_section(youtube_service)
             prompts_section()
+            game_section()
             contact_section()
             
         # Footer (Simple copyright)
