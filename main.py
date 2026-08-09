@@ -1,6 +1,7 @@
 import os
 from nicegui import app, ui
 from apscheduler.schedulers.background import BackgroundScheduler
+from zoneinfo import ZoneInfo
 from pages.home import home_page
 from services.youtube.youtube import YouTubeService
 from infrastructure.persistence.cache import YouTubeCache
@@ -10,7 +11,7 @@ from services.youtube.api_client import YouTubeAPIClient
 youtube_service = YouTubeService(api_client=YouTubeAPIClient(), cache=YouTubeCache())
 
 def start_scheduler():
-    scheduler = BackgroundScheduler()
+    scheduler = BackgroundScheduler(timezone=ZoneInfo("Europe/Paris"))
     # Schedule the job to run every day at 9:00 AM
     scheduler.add_job(lambda: youtube_service.refresh_cache(force=True), 'cron', hour=9, minute=0)
     scheduler.start()

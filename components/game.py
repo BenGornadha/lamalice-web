@@ -9,7 +9,7 @@ APP_STORE_BADGE = 'https://toolbox.marketingtools.apple.com/api/v2/badges/downlo
 PIXELPICKED_BADGE = 'https://api.pixelpicked.com/api/badges/1tD1LsRJHQh/live.png'
 
 def game_section() -> None:
-    with Section(id='game', bg_color='bg-white'):
+    with Section(id='game', bg_color='bg-gray-50'):
         with ui.row().classes('w-full items-center gap-12 flex-wrap md:flex-nowrap'):
             if GAME['image_url']:
                 ui.image(GAME['image_url']).classes('w-full md:w-1/2 rounded-2xl shadow-xl object-cover')
