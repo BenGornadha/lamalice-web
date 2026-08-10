@@ -35,3 +35,7 @@ def game_section() -> None:
                     f'<a href="{GAME["pixelpicked_url"]}" target="_blank" rel="noopener">'
                     f'<img src="{PIXELPICKED_BADGE}" width="250" height="54" alt="Approved on PixelPicked"></a>'
                 ).classes('w-full mt-2')
+
+                ui.link('Rejoindre le Discord', GAME['discord_url']).classes(
+                    'mt-2 text-gray-500 hover:text-gray-900 transition-colors'
+                )

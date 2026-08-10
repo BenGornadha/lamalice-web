@@ -34,4 +34,5 @@ GAME: Dict[str, str] = {
     'play_store_url': 'https://play.google.com/store/apps/details?id=com.bengornadha.herolinetd',
     'app_store_url': 'https://apps.apple.com/fr/app/hero-line-td-tower-defense/id6761715254',
     'pixelpicked_url': 'https://pixelpicked.com/game/1tD1LsRJHQh/hero-line-td',
+    'discord_url': 'https://discord.gg/n2UgbWH2E',
 }
