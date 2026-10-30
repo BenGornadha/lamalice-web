@@ -7,7 +7,11 @@ def hero(youtube_service) -> None:
     with Section(id='hero'):
         with ui.column().classes('w-full items-center text-center'):
             # Profile Picture
-            photo_url = youtube_service.get_channel_picture_url()
+            # ponytail: l'API YouTube ne doit jamais casser la page entiere
+            try:
+                photo_url = youtube_service.get_channel_picture_url()
+            except Exception:
+                photo_url = ''
             if photo_url:
                 ui.image(photo_url).classes('w-80 h-80 rounded-full mb-8 object-cover border-[8px] border-white shadow-2xl ring-1 ring-gray-900/5')
             
