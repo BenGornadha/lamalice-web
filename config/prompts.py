@@ -65,15 +65,19 @@ No Public Setters: Expose intention-revealing methods (e.g., user.ChangePassword
 No Frameworks in Domain: Strict ban on using ORM decorators (e.g., @Entity, @Column) or HTTP libraries inside the Domain layer.
 Strict Typing: Strictly type all variables, parameters, and return types. Never use "any" or generic objects."""
 
-PROMPTS: List[Dict[str, str]] = [
+PROMPTS: List[Dict] = [
     {
         'title': 'Clean Code & TDD',
+        'badge': 'FR · Python & GDScript',
         'description': 'Assistant de développement : SRP, simplicité, Object Calisthenics et TDD.',
+        'tags': ['SRP', 'Early Return ≤ 15 lignes', '4 Rules of Simple Design', 'Object Calisthenics', 'TDD (pytest / GUT)'],
         'content': CLEAN_CODE_PROMPT,
     },
     {
         'title': 'Clean Architecture & DDD',
+        'badge': 'EN · Architecture & DDD',
         'description': 'Expert architecture logicielle : Dependency Rule, Value Objects, Use Cases.',
+        'tags': ['Dependency Rule', 'Domain Isolation', 'Value Objects', 'Ports & Adapters', 'No Anemic Models'],
         'content': CLEAN_ARCHITECTURE_PROMPT,
     },
 ]

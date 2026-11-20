@@ -18,7 +18,7 @@ def start_scheduler():
     print("Scheduler started: YouTube cache will refresh daily at 9:00 AM.")
 
 app.on_startup(start_scheduler)
-app.on_startup(lambda: home_page())
+app.on_startup(lambda: home_page(youtube_service))
 
 port = int(os.getenv("PORT", "8080"))
 ui.run(
